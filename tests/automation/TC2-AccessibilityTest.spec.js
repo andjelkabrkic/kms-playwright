@@ -9,18 +9,20 @@ test.describe('TC2 - Accessibility Toolbar', () => {
       try {
           console.log('Go to home page');
           await home.goto();
+          await home.clickOurSolutions();
+          console.log('Get Font Size of header:original');
+          const originalFont = await home.getFontSizeOf('#dropdown_menu-0');
+
           console.log('Open Accessibility toolbar');
           await home.openAccessibilityToolbar();
           console.log('Check all toglles');
           await toolbar.checkAllTogglesVisible();
 
-          const originalFont = await home.getFontSizeOf('p[data-acwp-fontsize]');
-          console.log('Get Font Size of header:', originalFont);
-
           console.log('Increase font');
           await toolbar.toggleIncreaseFont();
           await page.waitForTimeout(5000);
-          const increasedFont = await home.getFontSizeOf('p[data-acwp-fontsize]');
+          await home.clickOurSolutions();
+          const increasedFont = await home.getFontSizeOf('#dropdown_menu-0');
           console.log('Get Font Size of header:', increasedFont);
 
           expect(increasedFont).not.toBe(originalFont);
@@ -28,7 +30,7 @@ test.describe('TC2 - Accessibility Toolbar', () => {
           await toolbar.toggleIncreaseFont();
           await page.waitForTimeout(1000);
 
-          const resetFont = await home.getFontSizeOf('p[data-acwp-fontsize]');
+          const resetFont = await home.getFontSizeOf('#dropdown_menu-0');
           expect(resetFont).toBe(originalFont);
       } catch (error) {
           await page.screenshot({ path: `screenshots/TC2-Accessibility-Fail-${Date.now()}.png`, fullPage: true });

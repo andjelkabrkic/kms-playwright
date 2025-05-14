@@ -1,0 +1,24 @@
+# Handle line endings automatically for all text files
+* text=auto
+
+# Set LF as line ending for JavaScript, JSON, config and markdown files
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.ts text eol=lf
+*.sh text eol=lf
+*.spec.js text eol=lf
+
+# Exclude binary files from any line-ending handling
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.mp4 binary

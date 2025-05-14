@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { HomePage } = require('../../pages/HomePage');
 const testData = require('../../data/ourSolutionsLinks.json');
+const { BookDemoPage } = require('../../pages/BookDemoPage');
 
 test.describe('TC1 - Verify Our Solutions links and Book a Demo button', () => {
     for (const item of testData) {
@@ -18,6 +19,7 @@ test.describe('TC1 - Verify Our Solutions links and Book a Demo button', () => {
                 await expect(home.bookDemoButton).toBeVisible();
 
                 await home.clickBookDemo();
+                await (BookDemoPage.firstNameInput).toBeVisible();
                 await expect(page).toHaveURL('https://kmslh.com/book-a-demo/');
             } catch (error) {
                 await page.screenshot({ path: `screenshots/TC1-${item.linkText.replace(/\s+/g, '_')}-${Date.now()}.png`, fullPage: true });

@@ -4,10 +4,11 @@ class AccessibilityToolbar {
     constructor(page) {
         this.page = page;
 
-        this.increaseTextToggle = page.locator('.acwp-toggler-incfont .acwp-switch')
+        this.increaseTextToggle = page.locator('//label[@for="acwp-toggler-incfont"]')
         this.contrastToggle = page.locator('[data-name="contrast"]');
         this.dyslexiaToggle = page.locator('[data-name="readable"]');
         this.highlightLinksToggle = page.locator('[data-name="underline"]');
+        this.closeAccessToolbar = page.locator('//i[text()="close"]/ancestor::button')
     }
 
     async checkAllTogglesVisible() {
@@ -22,8 +23,11 @@ class AccessibilityToolbar {
         return await this.page.evaluate(() => window.getComputedStyle(document.body).fontSize);
     }
     async toggleIncreaseFont() {
-        await this.increaseTextToggle.scrollIntoViewIfNeeded();
-        await this.increaseTextToggle.click({ force: true });
+        await this.increaseTextToggle.click();
+    }
+
+    async closeAccessibilityToolBar() {
+        await this.closeAccessibilityToolBar.click();
     }
 }
 
