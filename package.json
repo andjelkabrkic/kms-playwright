@@ -1,0 +1,17 @@
+{
+  "name": "kms-playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:single": "npx playwright test tests/automation/TC1-ourSolutions.spec.js",
+    "debug:chrome": "npx playwright test --debug --project=chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "allure-playwright": "^3.2.2",
+    "eslint": "^9.26.0"
+  }
+}

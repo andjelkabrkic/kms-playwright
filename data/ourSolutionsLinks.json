@@ -1,0 +1,18 @@
+[
+  {
+    "linkText": "Call Center",
+    "expectedUrl": "/solution-call-center"
+  },
+  {
+    "linkText": "Self Service",
+    "expectedUrl": "/solution-self-service"
+  },
+  {
+    "linkText": "Onboarding & Training",
+    "expectedUrl": "/solution-onboarding"
+  },
+  {
+    "linkText": "Field Service",
+    "expectedUrl": "/solution-field-service"
+  }
+]
